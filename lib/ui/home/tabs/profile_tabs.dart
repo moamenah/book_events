@@ -1,8 +1,10 @@
+import 'package:book_events/providers/app_language_providder.dart';
 import 'package:book_events/ui/home/tabs/LanguageBottomSheet/LanguageBottomSheet.dart';
 import 'package:book_events/utils/app_colors.dart';
 import 'package:book_events/utils/app_styles.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ProfileTabs extends StatefulWidget {
   const ProfileTabs({super.key});
@@ -14,14 +16,10 @@ class ProfileTabs extends StatefulWidget {
 class _ProfileTabsState extends State<ProfileTabs> {
   @override
   Widget build(BuildContext context) {
-    var height = MediaQuery
-        .of(context)
-        .size
-        .height;
-    var width = MediaQuery
-        .of(context)
-        .size
-        .width;
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var languageProvider=Provider.of<AppLanguageProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primaryLight,
@@ -57,7 +55,8 @@ class _ProfileTabsState extends State<ProfileTabs> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
               Text(
-              "Arabic",
+              languageProvider.appLanguage=="en"?"english".tr():
+              "arabic".tr(),
               style: AppStyles.bold20Primary,
               ),
               Icon(
