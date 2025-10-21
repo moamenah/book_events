@@ -1,4 +1,5 @@
 import 'package:book_events/providers/app_language_providder.dart';
+import 'package:book_events/providers/app_theme_provider.dart';
 import 'package:book_events/ui/home/home.dart';
 import 'package:book_events/utils/app_routes.dart';
 import 'package:book_events/utils/app_theme.dart';
@@ -17,8 +18,11 @@ void main()async{
       saveLocale: false, // ✅ عشان ما يحفظش آخر لغة
       startLocale: Locale("en"),
       fallbackLocale: Locale('en'),
-      child: ChangeNotifierProvider(
-          create: (context) => AppLanguageProvider(),
+      child:  MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => AppLanguageProvider(),),
+            ChangeNotifierProvider(create: (context) => AppThemeProvider(),),
+          ],
 
           child: MyApp())
   ),
@@ -30,6 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var languageProvider=Provider.of<AppLanguageProvider>(context);
+    var themeProvider=Provider.of<AppThemeProvider>(context);
 
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
@@ -37,8 +42,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
 theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-
-     // themeMode: ,
+      themeMode:themeProvider.appTheme  ,
 
 
 
