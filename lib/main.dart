@@ -1,3 +1,4 @@
+import 'package:book_events/onBoarding/onboardingSCreen.dart';
 import 'package:book_events/providers/app_language_providder.dart';
 import 'package:book_events/providers/app_theme_provider.dart';
 import 'package:book_events/ui/home/home.dart';
@@ -42,15 +43,16 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
 theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode:themeProvider.appTheme  ,
+      themeMode:themeProvider.appTheme,
 
 
 
 
       debugShowCheckedModeBanner: false,
-initialRoute: AppRoutes.homeRouteName,
+initialRoute: AppRoutes.onBoardingScreen,
       routes: {
         AppRoutes.homeRouteName:(context)=>Home(),
+        AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
       },
     );
   }

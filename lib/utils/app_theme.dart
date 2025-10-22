@@ -42,7 +42,7 @@ class AppTheme {
         titleLarge: AppStyles.medium16black
 
     ),
-    scaffoldBackgroundColor: AppColors.whiteBgColor,
+    scaffoldBackgroundColor: AppColors.whiteColor,
 
 
   );
