@@ -36,6 +36,7 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.whiteColor,
   );
+
   static TextStyle medium16Grey = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.w500,
@@ -46,11 +47,34 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.whiteColor,
   );
+
+
+
   static TextStyle medium16black = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.w500,
     color: AppColors.blackColor,
   );
+
+
+
+
+
+  static TextStyle medium16(BuildContext context) {
+    return GoogleFonts.inter(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+      color: Theme.of(context).colorScheme.onBackground,
+    );
+  }
+  static TextStyle bold20T(BuildContext context) {
+    return GoogleFonts.inter(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      color: Theme.of(context).colorScheme.onBackground,
+    );
+  }
+
 
 
   static TextStyle bold20Black = GoogleFonts.inter(

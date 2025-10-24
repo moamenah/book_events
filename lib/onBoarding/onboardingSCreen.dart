@@ -2,6 +2,7 @@ import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:book_events/providers/app_theme_provider.dart';
 import 'package:book_events/utils/app_assets.dart';
 import 'package:book_events/utils/app_colors.dart';
+import 'package:book_events/utils/app_routes.dart';
 import 'package:book_events/utils/app_styles.dart';
 import 'package:book_events/widgets/CustomElevatedButton.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -36,7 +37,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               Text("introduction_title_1".tr(),style: AppStyles.bold20Primary,),
               SizedBox(height: height*0.02,),
-              Text("introduction_subtitle_1".tr(),style: AppStyles.medium16black,),
+              Text("introduction_subtitle_1".tr(),
+                style: AppStyles.medium16(context),
+
+              ),
               SizedBox(height: height * 0.02),
           Row(
             mainAxisAlignment:MainAxisAlignment.spaceBetween,
@@ -44,9 +48,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Text("language".tr(),style: AppStyles.medium20primary,),
               AnimatedToggleSwitch<int>.rolling(
             current: languageIndex,
-            values: [1, 0],
+            values: [0, 1],
             iconOpacity: 2,
-            onChanged: (i) => setState(() => languageIndex = i),
+            onChanged: (i) {
+              setState(() {languageIndex=i;
+              if(i==1){
+                context.setLocale(Locale("en"));
+              }else{
+                context.setLocale(Locale("ar"));
+              }
+
+              },
+              );
+            },
           iconList: [
             Image.asset(AppAssets.EG),
             Image.asset(AppAssets.LR),
@@ -55,7 +69,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           style: ToggleStyle(
             borderColor: AppColors.primaryLight,
             indicatorColor: AppColors.primaryLight,
-          //  indicatorBorder: BoxBorder.all(width: 2)
+            backgroundColor: Theme.of(context).colorScheme.background
           ),
               ),
 
@@ -68,9 +82,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Text("theme".tr(),style: AppStyles.medium20primary,),
                   AnimatedToggleSwitch<int>.rolling(
                     current: themeIndex,
-                    values: [1, 0],
+                    values: [0, 1],
                     iconOpacity: 2,
-                    onChanged: (i) => setState(() => themeIndex = i),
+
+
+                    onChanged: (value) {
+                      setState(() {
+                        themeIndex=value;
+                        themeProvider.changeTheme(value==1?ThemeMode.dark:ThemeMode.light);
+                      },
+                      );
+                    },
+
+
                     iconList: [
                       Icon(Icons.sunny),
                       Icon(Icons.motion_photos_on_sharp),
@@ -81,6 +105,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     style: ToggleStyle(
                       borderColor: AppColors.primaryLight,
                       indicatorColor: AppColors.primaryLight,
+                        backgroundColor: Theme.of(context).colorScheme.background
+
                       //  indicatorBorder: BoxBorder.all(width: 2)
                     ),
                   ),
@@ -89,8 +115,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
               SizedBox(height: height * 0.02),
           CustomElevatedButton(
-
-              onPressed: (){}, text: "intro_btn".tr())
+              onPressed: (){
+Navigator.pushNamed(context, AppRoutes.SplashScreen);
+              }, text: "intro_btn".tr())
 
             ],
           ),

@@ -33,6 +33,9 @@ class AppAssets{
   static const String event_date_icon="assets/images/event_date_icon.png";
   static const String icon_time="assets/images/icon_time.png";
   static const String icon_location="assets/images/icon_location.png";
+  static const String Onboarding1="assets/images/Onboarding1.png";
+  static const String Onboarding2="assets/images/Onboarding2.png";
+  static const String Onboarding3="assets/images/Onboarding3.png";
 
 
 

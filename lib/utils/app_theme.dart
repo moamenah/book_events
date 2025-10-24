@@ -43,6 +43,11 @@ class AppTheme {
 
     ),
     scaffoldBackgroundColor: AppColors.whiteColor,
+    colorScheme: ColorScheme.light(
+      background: AppColors.whiteColor,
+      onBackground: AppColors.blackColor,
+      primary: AppColors.primaryLight
+    ),
 
 
   );
@@ -85,7 +90,12 @@ class AppTheme {
           titleLarge: AppStyles.medium16White
 
       ),
-      scaffoldBackgroundColor: AppColors.primaryDark
+      scaffoldBackgroundColor: AppColors.primaryDark,
+    colorScheme: ColorScheme.light(
+        background: AppColors.blackColor,
+        onBackground: AppColors.whiteColor,
+        primary: AppColors.primaryDark
+    ),
   );
 
 

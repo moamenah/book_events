@@ -1,3 +1,4 @@
+import 'package:book_events/login/login_screen.dart';
 import 'package:book_events/onBoarding/onboardingSCreen.dart';
 import 'package:book_events/providers/app_language_providder.dart';
 import 'package:book_events/providers/app_theme_provider.dart';
@@ -7,6 +8,8 @@ import 'package:book_events/utils/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'onBoarding/splash_screen/splash_screen.dart';
 
 void main()async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -53,6 +56,8 @@ initialRoute: AppRoutes.onBoardingScreen,
       routes: {
         AppRoutes.homeRouteName:(context)=>Home(),
         AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
+        AppRoutes.SplashScreen:(context)=>SplashScreen(),
+        AppRoutes.loginRouteName:(context)=>LoginScreen(),
       },
     );
   }
