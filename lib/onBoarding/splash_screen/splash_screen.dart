@@ -154,7 +154,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     pageController.nextPage(duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
                   }
                   else
-                    Navigator.pushReplacementNamed(context, AppRoutes.loginRouteName);
+                    Navigator.pushNamed(context, AppRoutes.homeRouteName);
 
                 },
                     icon: Icon(

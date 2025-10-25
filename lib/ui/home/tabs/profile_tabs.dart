@@ -27,6 +27,7 @@ class _ProfileTabsState extends State<ProfileTabs> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColors.primaryLight,
         toolbarHeight: height*0.22,
         shape:RoundedRectangleBorder(
@@ -71,7 +72,7 @@ class _ProfileTabsState extends State<ProfileTabs> {
               ),
               margin: EdgeInsets.symmetric(vertical: height * 0.02),
               decoration: BoxDecoration(
-              borderRadius: BorderRadiusGeometry.circular(16),
+              borderRadius: BorderRadius.circular(16),
               border: Border.all(width: 2, color: AppColors.primaryLight),
               ),
               child: Row(

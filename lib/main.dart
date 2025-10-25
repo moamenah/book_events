@@ -1,3 +1,4 @@
+import 'package:book_events/home/home_screen.dart';
 import 'package:book_events/login/login_screen.dart';
 import 'package:book_events/onBoarding/onboardingSCreen.dart';
 import 'package:book_events/providers/app_language_providder.dart';
@@ -22,6 +23,7 @@ void main()async{
       saveLocale: false, // ✅ عشان ما يحفظش آخر لغة
       startLocale: Locale("en"),
       fallbackLocale: Locale('en'),
+
       child:  MultiProvider(
           providers: [
             ChangeNotifierProvider(create: (context) => AppLanguageProvider(),),
@@ -44,6 +46,7 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
+
 theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode:themeProvider.appTheme,
@@ -58,6 +61,7 @@ initialRoute: AppRoutes.onBoardingScreen,
         AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
         AppRoutes.SplashScreen:(context)=>SplashScreen(),
         AppRoutes.loginRouteName:(context)=>LoginScreen(),
+        AppRoutes.homeRouteName:(context)=>HomeScreen(),
       },
     );
   }

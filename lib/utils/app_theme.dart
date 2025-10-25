@@ -35,6 +35,7 @@ class AppTheme {
     ),
 
     primaryColor: AppColors.primaryLight,
+
     textTheme: TextTheme(
         headlineLarge: AppStyles.bold20Black,
         headlineMedium: AppStyles.medium16primary,
@@ -65,7 +66,7 @@ class AppTheme {
           backgroundColor: AppColors.transparent,
           elevation: 0,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: AppColors.whiteColor,
+          selectedItemColor: AppColors.yellowColor,
           unselectedItemColor: AppColors.whiteColor,
           showUnselectedLabels: true,
           selectedLabelStyle: AppStyles.bold12White,
@@ -81,8 +82,10 @@ class AppTheme {
 
 
 
-
       primaryColor: AppColors.primaryDark,
+
+
+
       textTheme: TextTheme(
           headlineLarge: AppStyles.bold20White,
           headlineMedium: AppStyles.medium16White,
