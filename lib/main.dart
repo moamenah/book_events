@@ -1,4 +1,5 @@
 import 'package:book_events/home/home_screen.dart';
+import 'package:book_events/home/home_tab.dart';
 import 'package:book_events/login/login_screen.dart';
 import 'package:book_events/onBoarding/onboardingSCreen.dart';
 import 'package:book_events/providers/app_language_providder.dart';
@@ -55,13 +56,14 @@ theme: AppTheme.lightTheme,
 
 
       debugShowCheckedModeBanner: false,
-initialRoute: AppRoutes.onBoardingScreen,
+initialRoute: AppRoutes.homeTab,
       routes: {
         AppRoutes.homeRouteName:(context)=>Home(),
         AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
         AppRoutes.SplashScreen:(context)=>SplashScreen(),
         AppRoutes.loginRouteName:(context)=>LoginScreen(),
         AppRoutes.homeRouteName:(context)=>HomeScreen(),
+        AppRoutes.homeTab:(context)=>HomeTab(),
       },
     );
   }

@@ -6,7 +6,11 @@ class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     focusColor: AppColors.whiteColor,
     dividerColor: AppColors.blackColor,
-    appBarTheme: AppBarTheme(),
+
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.primaryLight,
+    ),
 
 
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -35,7 +39,6 @@ class AppTheme {
     ),
 
     primaryColor: AppColors.primaryLight,
-
     textTheme: TextTheme(
         headlineLarge: AppStyles.bold20Black,
         headlineMedium: AppStyles.medium16primary,
@@ -50,7 +53,6 @@ class AppTheme {
       primary: AppColors.primaryLight
     ),
 
-
   );
 
 
@@ -59,8 +61,9 @@ class AppTheme {
       focusColor: AppColors.primaryLight,
       dividerColor: AppColors.whiteColor,
 
-      appBarTheme: AppBarTheme(),
-
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.primaryDark,
+    ),
 
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: AppColors.transparent,
