@@ -1,3 +1,4 @@
+import 'package:book_events/home/widget/event_item.dart';
 import 'package:book_events/home/widget/event_tab_items.dart';
 import 'package:book_events/utils/app_assets.dart';
 import 'package:book_events/utils/app_colors.dart';
@@ -133,6 +134,17 @@ DefaultTabController(
           ),
         ),
       ),
+body:  Padding(
+  padding:  EdgeInsets.only(top: 5),
+  child: Column(
+    children: [
+      Expanded(child: ListView.separated(
+          itemBuilder:(context, index) => EventItem(),
+          separatorBuilder: (context, index) => SizedBox(height: height*0.001,),
+          itemCount: 20)),
+    ],
+  ),
+),
     );
   }
 }
