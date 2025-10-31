@@ -57,7 +57,7 @@ class EventItem extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Hello my sharks",style: AppStyles.bold14Black,),
+                  Text("Hello my sharks",style:themeProvider.isLightMode()? AppStyles.bold14Black:AppStyles.bold14White,),
                   Image.asset(AppAssets.favorite_icon,color:themeProvider.isLightMode()?AppColors.primaryLight:AppColors.whiteColor,)
                 ],
               ),
