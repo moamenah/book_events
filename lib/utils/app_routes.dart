@@ -1,6 +1,7 @@
 class AppRoutes{
   static const String homeRouteName= "homeScreen";
   static const String homeTab= "homeTab";
+  static const String forgetPassword= "forgetPassword";
   //static const String onBordrouteName = "onboarding";
   static const String loginRouteName = "login_screen";
   static const String registerRouteName = "register_screen";

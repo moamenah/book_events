@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppThemeProvider extends ChangeNotifier{
   //todo:DATA
-  ThemeMode appTheme =ThemeMode.dark;
+  ThemeMode appTheme =ThemeMode.light;
   //todo:FUNCTION
 void changeTheme(ThemeMode newTheme){
   if(appTheme==newTheme){

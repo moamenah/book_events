@@ -38,6 +38,8 @@
   "don’t_Have_Account ?": "Don’t Have Account ?",
   "create_Account": "Create Account",
   "or": "Or",
+  "login_with_google": "Login With Google",
+  "please_enter_valid_email": "Please Enter Valid email",
   "please_enter_some_text": "Please enter some text",
   "please_enter_your_password": "Please enter your password",
   "password_must_be_at_least_6_characters": "Password must be at least 6 characters",

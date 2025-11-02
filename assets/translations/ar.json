@@ -37,6 +37,8 @@
   "don’t_Have_Account ?": "ليس لديك حساب ؟",
   "create_Account": "إنشاء حساب",
   "or": "او",
+  "login_with_google": "التسجيل عن طريق جوجل",
+  "please_enter_valid_email": "الرجاء إدخال بريد إلكتروني صالح",
   "please_enter_some_text": "الرجاء إدخال بعض النص",
   "please_enter_your_password": "الرجاء إدخال كلمة المرور الخاصة بك",
   "password_must_be_at_least_6_characters": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل",

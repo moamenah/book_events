@@ -1,6 +1,8 @@
 import 'package:book_events/home/home_screen.dart';
 import 'package:book_events/home/home_tab.dart';
+import 'package:book_events/login/forget_password.dart';
 import 'package:book_events/login/login_screen.dart';
+import 'package:book_events/login/register_screen.dart';
 import 'package:book_events/onBoarding/onboardingSCreen.dart';
 import 'package:book_events/providers/app_language_providder.dart';
 import 'package:book_events/providers/app_theme_provider.dart';
@@ -56,7 +58,7 @@ theme: AppTheme.lightTheme,
 
 
       debugShowCheckedModeBanner: false,
-initialRoute: AppRoutes.homeTab,
+initialRoute: AppRoutes.registerRouteName,
       routes: {
         AppRoutes.homeRouteName:(context)=>Home(),
         AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
@@ -64,6 +66,8 @@ initialRoute: AppRoutes.homeTab,
         AppRoutes.loginRouteName:(context)=>LoginScreen(),
         AppRoutes.homeRouteName:(context)=>HomeScreen(),
         AppRoutes.homeTab:(context)=>HomeTab(),
+        AppRoutes.forgetPassword:(context)=>ForgetPassword(),
+        AppRoutes.registerRouteName:(context)=>RegisterScreen(),
       },
     );
   }
