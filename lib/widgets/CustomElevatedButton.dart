@@ -51,7 +51,7 @@ class CustomElevatedButton extends StatelessWidget {
             children: [
               iconWidget!,
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: width*0.02),
+                padding:EdgeInsets.symmetric(horizontal: width*0.02),
                 child: Text(text
                   ,style: textStyle?? AppStyles.regular20white,),
               ),

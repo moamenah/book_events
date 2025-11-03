@@ -17,6 +17,7 @@ dependencies:
   easy_localization: ^3.0.8
   animated_toggle_switch: ^0.8.5
   smooth_page_indicator: ^1.2.1
+  firebase_core: ^4.2.1
 
 dev_dependencies:
   flutter_test:

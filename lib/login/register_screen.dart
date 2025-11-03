@@ -1,3 +1,4 @@
+import 'package:book_events/providers/app_theme_provider.dart';
 import 'package:book_events/utils/app_assets.dart';
 import 'package:book_events/utils/app_colors.dart';
 import 'package:book_events/utils/app_routes.dart';
@@ -6,6 +7,7 @@ import 'package:book_events/widgets/CustomElevatedButton.dart';
 import 'package:book_events/widgets/Custom_text_form_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -27,10 +29,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var themeProvider= Provider.of<AppThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("register".tr(),style: AppStyles.bold16Black),
-        backgroundColor: AppColors.whiteColor,
+        title: Text("register".tr(),
+            style:themeProvider.isLightMode()?
+            AppStyles.bold16Black:AppStyles.bold14White),
+
+
+        backgroundColor:
+        themeProvider.isLightMode()?
+        Theme.of(context).focusColor:
+        Theme.of(context).primaryColor,
         centerTitle: true,
       ),
       body:  Form(
@@ -44,7 +55,7 @@ key: formKey,
                 Image.asset(AppAssets.evently_logo2,width: 136,height: 186,),
                 SizedBox(height: height*0.02,),
                 CustomTextFormFiled(
-            prefixIcon: Icon(Icons.person),
+            prefixIcon: Icon(Icons.person,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor),
                     hintText: "name".tr(),
                     validator: (value){
                       if(value==null || value.trim().isEmpty){
@@ -69,7 +80,7 @@ key: formKey,
                   }
                   return null;
                 },
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: Icon(Icons.email,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor,),
                 hintText: "email".tr(),
                 keyBoardType: TextInputType.text,
                 controller: emailController),
@@ -86,7 +97,7 @@ key: formKey,
                       }
                       return null;
                     },
-                    prefixIcon: Icon(Icons.lock,),
+                    prefixIcon: Icon(Icons.lock,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor),
 
 
                     suffixIcon: IconButton(onPressed: (){
@@ -94,7 +105,7 @@ key: formKey,
                         obscurePassword=!obscurePassword;
                       });
                     },
-                        icon: Icon(obscurePassword?Icons.visibility_off:Icons.visibility)),
+                        icon: Icon(obscurePassword?Icons.visibility_off:Icons.visibility,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor)),
 
                     hintText: "password".tr(),
                     keyBoardType: TextInputType.text,
@@ -113,7 +124,7 @@ key: formKey,
 
                       return null;
                     },
-                    prefixIcon: Icon(Icons.lock,),
+                    prefixIcon: Icon(Icons.lock,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor),
 
 
                     suffixIcon: IconButton(onPressed: (){
@@ -122,7 +133,7 @@ key: formKey,
                       });
                     },
                         icon: Icon(obscureRePassword?Icons.visibility_off
-                            :Icons.visibility)),
+                            :Icons.visibility,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor)),
 
                     hintText: "re_password".tr(),
                     keyBoardType: TextInputType.text,
@@ -136,7 +147,8 @@ key: formKey,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("already_have_account ?".tr(),style: AppStyles.medium16black,),
+                    Text("already_have_account ?".tr(),
+                      style: themeProvider.isLightMode()?AppStyles.medium16black:AppStyles.medium16White),
                     GestureDetector(
                       onTap: (){
 

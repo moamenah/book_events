@@ -9,6 +9,9 @@ class AppTheme {
 
 
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: AppColors.blackColor
+      ),
       backgroundColor: AppColors.primaryLight,
     ),
 
@@ -62,6 +65,9 @@ class AppTheme {
       dividerColor: AppColors.whiteColor,
 
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: AppColors.whiteColor
+      ),
       backgroundColor: AppColors.primaryDark,
     ),
 

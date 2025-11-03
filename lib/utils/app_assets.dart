@@ -36,6 +36,7 @@ class AppAssets{
   static const String Onboarding1="assets/images/Onboarding1.png";
   static const String Onboarding2="assets/images/Onboarding2.png";
   static const String Onboarding3="assets/images/Onboarding3.png";
+  static const String forget_password="assets/images/forget_password.png";
 
 
 

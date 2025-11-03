@@ -1,3 +1,4 @@
+import 'package:book_events/providers/app_theme_provider.dart';
 import 'package:book_events/utils/app_assets.dart';
 import 'package:book_events/utils/app_colors.dart';
 import 'package:book_events/utils/app_routes.dart';
@@ -6,6 +7,7 @@ import 'package:book_events/widgets/CustomElevatedButton.dart';
 import 'package:book_events/widgets/Custom_text_form_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -24,10 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+   var themeProvider= Provider.of<AppThemeProvider>(context);
     return SafeArea(
       child: Scaffold(
         body:  Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding:  EdgeInsets.all(16.0),
           child:  Form(
             key: formKey,
             child: SingleChildScrollView(
@@ -50,11 +53,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
-                    prefixIcon: Icon(Icons.email),
+                    prefixIcon: Icon(Icons.email,color:themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor,),
                       hintText: "email".tr(),
                       keyBoardType: TextInputType.text,
                       controller: emailController),
+
+
                   SizedBox(height: height*0.02,),
+
+
                   CustomTextFormFiled(
                     obscureText: obscurePassword,
                     obscuringCharacter: "*",
@@ -67,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                       return null;
                     },
-                    prefixIcon: Icon(Icons.lock,),
+                    prefixIcon: Icon(Icons.lock,color:themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor,),
 
 
                       suffixIcon: IconButton(onPressed: (){
@@ -75,7 +82,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           obscurePassword=!obscurePassword;
                         });
                       },
-                          icon: Icon(obscurePassword?Icons.visibility_off:Icons.visibility)),
+                          icon: Icon(obscurePassword?Icons.visibility_off:Icons.visibility),color:themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor,),
 
                       hintText: "password".tr(),
                       keyBoardType: TextInputType.text,
@@ -108,13 +115,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text("don’t_Have_Account ?".tr(),
-                        style: AppStyles.medium16black,),
+                        style:themeProvider.isLightMode()?
+                        AppStyles.medium16black:AppStyles.medium16White,),
                       SizedBox(
                         width: width*0.02,
                       ),
                       InkWell(
                         onTap: (){
-                          Navigator.of(context).pushReplacementNamed(AppRoutes.registerRouteName);
+                          Navigator.of(context).pushNamed(AppRoutes.registerRouteName);
                         },
                         child: Text("create_Account".tr(),
                           style: AppStyles.bold16Primary.copyWith(

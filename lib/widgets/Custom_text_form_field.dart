@@ -1,6 +1,8 @@
+import 'package:book_events/providers/app_theme_provider.dart';
 import 'package:book_events/utils/app_colors.dart';
 import 'package:book_events/utils/app_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 typedef OnValidator=String? Function(String?)?;
 // leh nullable ? 3ashan momkn user Maybe doesn't write anything
@@ -40,11 +42,13 @@ class CustomTextFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var themeProvider= Provider.of<AppThemeProvider>(context);
 
 
     return TextFormField(
       maxLines: maxLines??1,
       keyboardType: keyBoardType,
+      style: themeProvider.isLightMode()?AppStyles.medium16black:AppStyles.medium16White,
       decoration: InputDecoration(
           enabledBorder:OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
@@ -82,7 +86,7 @@ class CustomTextFormFiled extends StatelessWidget {
 
 
           hintText:hintText,
-          hintStyle:hintStyle??AppStyles.medium16Grey,//lw ana mb3tsh default bta3o grey
+          hintStyle:themeProvider.isLightMode()?hintStyle??AppStyles.medium16black:AppStyles.medium16White,//lw ana mb3tsh default bta3o grey
           labelText: labelText,
           labelStyle:labelStyle??AppStyles.medium16Grey,
           prefixIcon: prefixIcon,

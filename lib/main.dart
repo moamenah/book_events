@@ -1,3 +1,4 @@
+import 'package:book_events/firebase_options.dart';
 import 'package:book_events/home/home_screen.dart';
 import 'package:book_events/home/home_tab.dart';
 import 'package:book_events/login/forget_password.dart';
@@ -10,12 +11,16 @@ import 'package:book_events/ui/home/home.dart';
 import 'package:book_events/utils/app_routes.dart';
 import 'package:book_events/utils/app_theme.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'onBoarding/splash_screen/splash_screen.dart';
 
 void main()async{
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
@@ -58,7 +63,7 @@ theme: AppTheme.lightTheme,
 
 
       debugShowCheckedModeBanner: false,
-initialRoute: AppRoutes.registerRouteName,
+initialRoute: AppRoutes.loginRouteName,
       routes: {
         AppRoutes.homeRouteName:(context)=>Home(),
         AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
