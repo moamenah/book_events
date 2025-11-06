@@ -3,7 +3,7 @@ import 'package:book_events/home/home_screen.dart';
 import 'package:book_events/home/home_tab.dart';
 import 'package:book_events/login/forget_password.dart';
 import 'package:book_events/auth/login/login_screen.dart';
-import 'package:book_events/login/register_screen.dart';
+import 'package:book_events/auth/register/register_screen.dart';
 import 'package:book_events/onBoarding/onboardingSCreen.dart';
 import 'package:book_events/providers/app_language_providder.dart';
 import 'package:book_events/providers/app_theme_provider.dart';

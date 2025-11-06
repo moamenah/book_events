@@ -21,8 +21,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen>implements LoginNavigator {
-  TextEditingController emailController= TextEditingController(text: "moamen1020@gmail.com");
-  TextEditingController passwordController= TextEditingController(text: "123456789");
+  //TextEditingController emailController= TextEditingController();
+  //TextEditingController passwordController= TextEditingController();
 @override
   void initState() {
     // TODO: implement initState
@@ -205,9 +205,18 @@ class _LoginScreenState extends State<LoginScreen>implements LoginNavigator {
   }
 
   @override
-  void showMyMsg(String message) {
-    DialogUtils.showMsg(context: context, text: message);
+  void showMyMsg(String message,{String?postActionName,Function? posAction}) {
+    DialogUtils.showMsg(context: context, text: message,
+    posAction: posAction,
+      postActionName: postActionName
+    );
     // TODO: implement showMyMsg
+  }
+
+  @override
+  void navigateToHome() {
+    Navigator.of(context).pushNamed(AppRoutes.homeRouteName);
+    // TODO: implement navigateToHome
   }
 
 

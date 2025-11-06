@@ -1,0 +1,213 @@
+import 'package:book_events/auth/register/register_navigator.dart';
+import 'package:book_events/auth/register/register_screen_view_model.dart';
+import 'package:book_events/providers/app_theme_provider.dart';
+import 'package:book_events/utils/app_assets.dart';
+import 'package:book_events/utils/app_colors.dart';
+import 'package:book_events/utils/app_routes.dart';
+import 'package:book_events/utils/app_styles.dart';
+import 'package:book_events/utils/dialog_utils.dart';
+import 'package:book_events/widgets/CustomElevatedButton.dart';
+import 'package:book_events/widgets/Custom_text_form_field.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen>implements RegisterNavigator {
+  RegisterScreenViewModel viewModel= RegisterScreenViewModel();
+
+
+
+  bool obscurePassword= true;
+  bool obscureRePassword = true;
+  //var formKey=GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    viewModel.navigator=this;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+    var themeProvider= Provider.of<AppThemeProvider>(context);
+
+    return ChangeNotifierProvider(
+      create: (context) => viewModel,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("register".tr(),
+              style:themeProvider.isLightMode()?
+              AppStyles.bold16Black:AppStyles.bold14White),
+
+
+          backgroundColor:
+          themeProvider.isLightMode()?
+          Theme.of(context).focusColor:
+          Theme.of(context).primaryColor,
+          centerTitle: true,
+        ),
+        body:  Form(
+      key: viewModel.formKey,
+          child: Padding(
+            padding:  EdgeInsets.all(8.0),
+            child: SingleChildScrollView(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              child: Column(
+                children: [
+                  Image.asset(AppAssets.evently_logo2,width: 136,height: 186,),
+                  SizedBox(height: height*0.02,),
+                  CustomTextFormFiled(
+              prefixIcon: Icon(Icons.person,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor),
+                      hintText: "name".tr(),
+                      validator: (value){
+                        if(value==null || value.trim().isEmpty){
+                          return "please_enter_some_text".tr();
+                        }
+
+                        return null;
+                      },
+                      controller: viewModel.nameController),
+                  SizedBox(height: height*0.02,),
+              CustomTextFormFiled(
+                // colorBorderSide: AppColors.greyColor,
+                  validator: (value){
+                    if(value==null || value.trim().isEmpty){
+                      return "please_enter_some_text".tr();
+                    }
+                    bool emailValid = RegExp(
+                        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+                    ).hasMatch(value);
+                    if(!emailValid){
+                      return"please_enter_valid_email".tr();
+                    }
+                    return null;
+                  },
+                  prefixIcon: Icon(Icons.email,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor,),
+                  hintText: "email".tr(),
+                  keyBoardType: TextInputType.text,
+                  controller: viewModel.emailController),
+                  SizedBox(height: height*0.02,),
+                  CustomTextFormFiled(
+                      obscureText: obscurePassword,
+                      obscuringCharacter: "*",
+                      validator: (value){
+                        if(value == null || value.trim().isEmpty){
+                          return "please_enter_your_password".tr();
+                        }
+                        if(value.length<6){
+                          return"password_must_be_at_least_6_characters".tr();
+                        }
+                        return null;
+                      },
+                      prefixIcon: Icon(Icons.lock,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor),
+
+
+                      suffixIcon: IconButton(onPressed: (){
+                        setState(() {
+                          obscurePassword=!obscurePassword;
+                        });
+                      },
+                          icon: Icon(obscurePassword?Icons.visibility_off:Icons.visibility,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor)),
+
+                      hintText: "password".tr(),
+                      keyBoardType: TextInputType.text,
+                      controller: viewModel.passwordController),
+                  SizedBox(height: height*0.02,),
+                  CustomTextFormFiled(
+                      obscureText: obscureRePassword,
+                      obscuringCharacter: "*",
+                      validator: (value){
+                        if(value == null || value.trim().isEmpty){
+                          return "please_enter_your_password".tr();
+                        }
+                        if(value.length<6){
+                          return"password_must_be_at_least_6_characters".tr();
+                        }
+
+                        return null;
+                      },
+                      prefixIcon: Icon(Icons.lock,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor),
+
+
+                      suffixIcon: IconButton(onPressed: (){
+                        setState(() {
+                          obscureRePassword=!obscureRePassword;
+                        });
+                      },
+                          icon: Icon(obscureRePassword?Icons.visibility_off
+                              :Icons.visibility,color: themeProvider.isLightMode()?AppColors.blackColor:AppColors.whiteColor)),
+
+                      hintText: "re_password".tr(),
+                      keyBoardType: TextInputType.text,
+                      controller: viewModel.rePasswordController),
+                  SizedBox(height: height*0.02,),
+              CustomElevatedButton(onPressed: (){
+                viewModel.register();
+              }, text: "create_account".tr()),
+                  SizedBox(height: height*0.02,),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("already_have_account ?".tr(),
+                        style: themeProvider.isLightMode()?AppStyles.medium16black:AppStyles.medium16White),
+                      GestureDetector(
+                        onTap: (){
+
+                          Navigator.of(context).pushNamed(AppRoutes.homeRouteName);
+                        },
+                        child: Text("login".tr(),style: AppStyles.bold16Primary.copyWith(
+                          decoration: TextDecoration.underline,
+                          decorationColor: AppColors.primaryLight
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+
+
+  @override
+  void hideMyLoading() {
+    // TODO: implement hideMyLoading
+    DialogUtils.hideLoading(context: context);
+  }
+
+  @override
+  void showMyLoading(String message) {
+    // TODO: implement showMyLoading
+    DialogUtils.showLoading(context: context, text: message);
+  }
+
+  @override
+  void showMyMsg(String message,{String?postActionName,Function? posAction}) {
+    DialogUtils.showMsg(context: context,
+        text: message,
+    postActionName: postActionName,
+      posAction: posAction
+    );
+    // TODO: implement showMyMsg
+  }
+
+  @override
+  void navigateToHome() {
+    // TODO: implement navigateToHome
+    Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+  }
+}
