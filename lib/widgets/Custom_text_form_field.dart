@@ -45,57 +45,69 @@ class CustomTextFormFiled extends StatelessWidget {
     var themeProvider= Provider.of<AppThemeProvider>(context);
 
 
-    return TextFormField(
-      maxLines: maxLines??1,
-      keyboardType: keyBoardType,
-      style: themeProvider.isLightMode()?AppStyles.medium16black:AppStyles.medium16White,
-      decoration: InputDecoration(
-          enabledBorder:OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(
-                color: colorBorderSide,
-                width: 1,
-              )
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(
-                color: AppColors.redColor,
-                width: 1.5
-            ),
-          ),
-          errorStyle: AppStyles.medium16primary.copyWith(
-              color: AppColors.redColor
-          ),
-          focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(
-                color: AppColors.primaryLight,
-                width: 1.5,
-              )
-          ),
-          focusedErrorBorder:  OutlineInputBorder(
-              borderRadius: BorderRadius.circular(16),
-              borderSide: BorderSide(
-                color: AppColors.redColor,
-                width: 1,
-              )
-          ),
-
-
-
-
-          hintText:hintText,
-          hintStyle:themeProvider.isLightMode()?hintStyle??AppStyles.medium16black:AppStyles.medium16White,//lw ana mb3tsh default bta3o grey
-          labelText: labelText,
-          labelStyle:labelStyle??AppStyles.medium16Grey,
-          prefixIcon: prefixIcon,
-          suffixIcon:suffixIcon
+    return Theme(
+      data: Theme.of(context).copyWith(
+        textSelectionTheme: TextSelectionThemeData(
+          cursorColor: themeProvider.isLightMode()?AppColors.primaryLight:AppColors.whiteColor,
+selectionColor: themeProvider.isLightMode()?AppColors.primaryLight.withOpacity(0.4):AppColors.whiteColor.withOpacity(0.4),
+          selectionHandleColor: themeProvider.isLightMode()?AppColors.primaryLight:AppColors.whiteColor
+        ),
       ),
-      validator: validator,
-      controller: controller,
-      obscureText:obscureText ,
-      obscuringCharacter:obscuringCharacter??"." ,
+      child: TextFormField(
+
+        maxLines: maxLines??1,
+        keyboardType: keyBoardType,
+        style:
+        themeProvider.isLightMode()?
+        AppStyles.medium16black:AppStyles.medium16White,
+        decoration: InputDecoration(
+            enabledBorder:OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(
+                  color: colorBorderSide,
+                  width: 1,
+                )
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: BorderSide(
+                  color: AppColors.redColor,
+                  width: 1.5
+              ),
+            ),
+            errorStyle: AppStyles.medium16primary.copyWith(
+                color: AppColors.redColor
+            ),
+            focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(
+                  color: AppColors.primaryLight,
+                  width: 1.5,
+                )
+            ),
+            focusedErrorBorder:  OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(
+                  color: AppColors.redColor,
+                  width: 1,
+                )
+            ),
+
+
+
+
+            hintText:hintText,
+            hintStyle:themeProvider.isLightMode()?hintStyle??AppStyles.medium16black:AppStyles.medium16White,//lw ana mb3tsh default bta3o grey
+            labelText: labelText,
+            labelStyle:labelStyle??AppStyles.medium16Grey,
+            prefixIcon: prefixIcon,
+            suffixIcon:suffixIcon
+        ),
+        validator: validator,
+        controller: controller,
+        obscureText:obscureText ,
+        obscuringCharacter:obscuringCharacter??"." ,
+      ),
     );
   }
 }

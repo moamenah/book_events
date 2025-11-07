@@ -52,7 +52,10 @@ class _LoginScreenState extends State<LoginScreen>implements LoginNavigator {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    SizedBox(height: height*0.03,),
                     Image.asset(AppAssets.evently_logo2),
+                    SizedBox(height: height*0.03,),
+
                     CustomTextFormFiled(
                      // colorBorderSide: AppColors.greyColor,
                       validator: (value){
@@ -179,8 +182,10 @@ class _LoginScreenState extends State<LoginScreen>implements LoginNavigator {
                       iconWidget: Image.asset(
                           AppAssets.icon_google),
                       backGroundColor: AppColors.transparent,
-                        textStyle: AppStyles.medium20primary,
-                        onPressed: (){},
+                        textStyle: AppStyles.medium16primary,
+                        onPressed: (){
+                        viewModel.signInWithGoogle();
+                        },
                         text: "login_with_google".tr(),)
                   ],
                 ),

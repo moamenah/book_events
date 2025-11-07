@@ -12,7 +12,20 @@
           "package_name": "com.example.book_events"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "626675124859-falg4h2dfnvu5rrmd56rdc1d1for5igk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.book_events",
+            "certificate_hash": "1620bbf7e027912a93aab67900a6ccf9c920adcb"
+          }
+        },
+        {
+          "client_id": "626675124859-437v4uh88fle00be8nulg1ud579kr1ap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDlhy3rftz2wSc4fCAc-SLBgqcLAULXbjs"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "626675124859-437v4uh88fle00be8nulg1ud579kr1ap.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "626675124859-nn5e0ce57p3fpms3r8bs48lk6jf6g7sk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bookEvents"
+              }
+            }
+          ]
         }
       }
     }

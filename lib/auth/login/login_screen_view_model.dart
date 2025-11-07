@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'login_navigator.dart';
 
 
@@ -69,5 +70,66 @@ var passwordController=TextEditingController();
 
     }
   }
+
+
+
+ Future <void> signInWithGoogle()async{
+    navigator.showMyLoading("Signing in with Google");
+
+
+try{
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+// 3asahn a5tar ay account tani lw 3awez the same account kol mara ashel code dh
+  await googleSignIn.signOut();
+
+
+  final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+if(googleUser==null){
+  navigator.hideMyLoading();
+  return;
+}
+  final   GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+final AuthCredential credential=GoogleAuthProvider.credential(
+  accessToken: googleAuth.accessToken,
+  idToken: googleAuth.idToken
+);
+await FirebaseAuth.instance.signInWithCredential(credential);
+  navigator.hideMyLoading();
+  navigator.showMyMsg(
+    "Logged in with Google successfully!",
+    postActionName: "ok",
+    posAction: () {
+      navigator.navigateToHome();
+    },
+  );
+}catch (e) {
+  navigator.hideMyLoading();
+  navigator.showMyMsg("Google Sign-In failed: $e");
+}
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -5,11 +5,6 @@ import 'package:flutter/material.dart';
 class RegisterScreenViewModel extends ChangeNotifier{
   //todo: HOLD DATA .. handle Logic..
 
-
-  //var emailController=TextEditingController(text: "moamenahmed123@gmail.com");
-  //var passwordController=TextEditingController(text: "123456789");
-
-
   var formKey=GlobalKey<FormState>();
   TextEditingController nameController= TextEditingController();
   TextEditingController emailController= TextEditingController();
