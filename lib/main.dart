@@ -1,4 +1,5 @@
 import 'package:book_events/firebase_options.dart';
+import 'package:book_events/home/add_event/add_event.dart';
 import 'package:book_events/home/home_screen.dart';
 import 'package:book_events/home/home_tab.dart';
 import 'package:book_events/login/forget_password.dart';
@@ -63,7 +64,7 @@ theme: AppTheme.lightTheme,
 
 
       debugShowCheckedModeBanner: false,
-initialRoute: AppRoutes.loginRouteName,
+initialRoute: AppRoutes.addEventRouteName,
       routes: {
         AppRoutes.homeRouteName:(context)=>Home(),
         AppRoutes.onBoardingScreen:(context)=>OnboardingScreen(),
@@ -73,6 +74,7 @@ initialRoute: AppRoutes.loginRouteName,
         AppRoutes.homeTab:(context)=>HomeTab(),
         AppRoutes.forgetPassword:(context)=>ForgetPassword(),
         AppRoutes.registerRouteName:(context)=>RegisterScreen(),
+        AppRoutes.addEventRouteName:(context)=>AddEvent(),
       },
     );
   }

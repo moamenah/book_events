@@ -41,11 +41,11 @@ class AppTheme {
       // ),
     ),
 
-    primaryColor: AppColors.primaryLight,
+    primaryColor: AppColors.primaryDark,
     textTheme: TextTheme(
         headlineLarge: AppStyles.bold20Black,
-        headlineMedium: AppStyles.medium16primary,
-        headlineSmall: AppStyles.medium16White,
+        headlineMedium: AppStyles.bold16Primary,
+        headlineSmall: AppStyles.bold16White,
         titleLarge: AppStyles.medium16black
 
     ),
