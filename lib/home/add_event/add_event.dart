@@ -82,7 +82,7 @@ class _AddEventState extends State<AddEvent> {
                         });
                       },
                       child: EventTabItems(
-                          eventName: eventsNameList[index],
+                          eventName: eventsNameList[index].tr(),
                           isSelected: selectedIndex==index,
                           icon: eventsIconsList[index]),
                     );
