@@ -54,6 +54,8 @@
   "create_event": "إنشاء حدث",
   "title": "عنوان",
   "event_title": "عنوان الحدث",
+  "please_enter_event_title": "الرجاء إدخال عنوان الحدث",
+  "please_enter_event_description": "الرجاء إدخال عنوان الوصف",
   "description": "وصف",
   "event_description": "وصف الحدث",
   "event_date": "تاريخ الحدث",

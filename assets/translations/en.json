@@ -56,6 +56,8 @@
   "Search_for_Event": "Search for Event",
   "event_title": "Event Title",
   "description": "Description",
+  "please_enter_event_title": "Please enter event title",
+  "please_enter_event_description": "Please enter event description",
   "event_description": "Event Description",
   "event_date": "Event Date",
   "event_time": "Event Time",
